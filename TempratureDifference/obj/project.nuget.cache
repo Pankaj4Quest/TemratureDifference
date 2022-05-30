@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1hNa+WJr4/KMC8GsVw+Smr4LP79vbAOVS/2R7phe2KCpMCH0YNgQ2aEsIc5/nyYe5OK1dz6jUVf5/biJUNQYPA==",
+  "success": true,
+  "projectFilePath": "C:\\Pankaj\\Practice\\TempratureDifference\\TempratureDifference\\TempratureDifference.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pankaj.verma\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
