@@ -1,8 +1,8 @@
-day,minTemp,maxTemp
-Sunday,21,29
-Monday,22,31
-Tuesday,19,30
-Wednesday,24,29
-Thursday,26,34
-Friday,22,26
-Saturday,18,31
+day,maxTemp,minTemp
+Sunday,29,21
+Monday,31,22
+Tuesday,30,19
+Wednesday,29,24
+Thursday,34,26
+Friday,26,22
+Saturday,31,18

@@ -6,11 +6,14 @@ namespace TempDiff
 {
     class Program
     {
-        private static readonly string _filePath = "..//..//..//TempData.csv";
+        
+        private static readonly string _filePath1 = "..//..//..//weatherdata.csv";
+        private static readonly string _filePath2 = "..//..//..//TempData.csv";
+        private static readonly int padding = 5; /*make padding = 10 for _filePath2*/
         static void Main(string[] args)
         {
-            Console.WriteLine("Reading temprature data from provided data in file. . . \n ");
-            var dataRows = File.ReadLines(_filePath).Select(a => a.Split(','));
+            Console.WriteLine("Reading weather data from provided file. . . \n ");
+            var dataRows = File.ReadLines(_filePath1).Select(a => a.Split(','));
 
             int count = dataRows.Count();
             var listData = dataRows.ToList();
@@ -21,26 +24,37 @@ namespace TempDiff
             int minTemp = 0;
             int maxTemp = 1;
 
-            Console.WriteLine("Day oF Week" + "\t" + "Min Temp" + "\t" + "Max Temp");
+            foreach (var column in listData[0])
+            {
+                Console.Write(column.PadRight(padding) + "\t");
+            }
+
             for (int i = 1; i < count; i++)
             {
                 var row = listData[i];
-                dayOfWeek = row[0];
-                minTemp = Convert.ToInt32(row[1]);
-                maxTemp = Convert.ToInt32(row[2]);
-                tempDifference = maxTemp - minTemp;
 
-                if (tempDifference < minTempDifference)
+                Console.WriteLine();
+                foreach (var column in row)
                 {
-                    minTempDifference = tempDifference;
-                    minTempVariationDay = dayOfWeek;
+                    Console.Write(column.PadRight(padding) + "\t");
                 }
 
+                if (i < count - 1)
+                {
+                    dayOfWeek = row[0];
+                    minTemp = Convert.ToInt32(row[2]);
+                    maxTemp = Convert.ToInt32(row[1]);
+                    tempDifference = maxTemp - minTemp;
 
-                Console.WriteLine(dayOfWeek.PadRight(10) + "\t" + minTemp + "\t\t" + maxTemp);
+                    if (tempDifference < minTempDifference)
+                    {
+                        minTempDifference = tempDifference;
+                        minTempVariationDay = dayOfWeek;
+                    }
+                }
             }
 
-            Console.WriteLine("\n\nDay with minimum temprature variation is : " + minTempVariationDay + " with temprature variation of " + minTempDifference + " degrees");
+            Console.WriteLine("\n\nThe Day with the lowest variation in temperature is day : " + minTempVariationDay + " with the temperature variation of " + minTempDifference + " degrees");
             Console.ReadKey();
         }
     }
